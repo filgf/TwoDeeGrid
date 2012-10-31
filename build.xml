@@ -1,0 +1,54 @@
+<project name="Griddle" default="dist" basedir=".">
+	<target name="dist">
+		<antcall target="compile"/>
+		
+		<delete file="dist/griddie.jar"/>
+		<jar destfile="dist/griddie.jar">
+			<fileset dir="bin">
+<!--				<exclude name="**/Test*.class"/> -->
+				<exclude name="griddie/examples/**/*"/>
+			</fileset>
+			<manifest>
+				<attribute name="Main-Class"
+		            value="griddie.TestGrid"/>
+			</manifest>
+		</jar>
+		
+		<antcall target="doc"/>
+	</target>
+	
+	<target name="compile">
+		<delete dir="dist/bin"/>
+		<mkdir dir="dist/bin"/>
+		
+		  <javac srcdir="src"
+		         destdir="dist/bin"
+				 includeAntRuntime="false"
+		         source="1.5"
+		         target="1.5"  />
+
+		<javac srcdir="test"
+		         destdir="dist/bin"
+			 includeAntRuntime="false"
+				source="1.5"
+		         target="1.5"  />
+	</target>
+	
+	<target name="doc">
+		<delete dir="dist/doc"/>
+		  <javadoc packagenames="griddie.*"
+		           sourcepath="src"
+		           defaultexcludes="yes"
+		           destdir="dist/doc"
+		           version="true"
+		           use="false"
+		  		   author="false"
+		           windowtitle="Griddie Documentation">
+		  	
+		    <doctitle><![CDATA[<h1>Griddie Documentation</h1>]]></doctitle>
+		    <bottom><![CDATA[<i>Copyright &#169; 2012 Philip Graf. All Rights Reserved.</i>]]></bottom>
+		    <link href="http://developer.java.sun.com/developer/products/xml/docs/api/"/>
+		  </javadoc>
+	</target>
+	
+</project>

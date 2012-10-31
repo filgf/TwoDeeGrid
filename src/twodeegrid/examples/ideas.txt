@@ -1,0 +1,13 @@
+== Spiele
+
+(Minesweeper)
+Dame
+Discofloor
+Tic Tac Toe
+Vier gewinnt
+
+== Effekte
+
+Plasma
+Rasterbars
+Raytracer(!!)
