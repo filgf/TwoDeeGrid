@@ -1,4 +1,5 @@
-package griddie;
+package twodeegrid;
+
 
 import twodeegrid.CellColor;
 import twodeegrid.MouseClick;

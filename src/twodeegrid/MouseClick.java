@@ -3,8 +3,8 @@ package twodeegrid;
 
 /**
  * Objects of this class are generated and returned by Griddie.waitMouseClick(). 
- * They contain information about the grid coordinates the mouse click occured on 
- * (starting from 0,0 as the upper-leftmost tile) and which
+ * They contain information about the grid coordinates the mouse click occurred on 
+ * (starting from 0,0 as the upper-leftmost tile) and which button was clicked
  * @author graf
  *
  */

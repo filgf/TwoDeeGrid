@@ -8,7 +8,6 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class TwoDeeGrid {
@@ -51,7 +50,8 @@ public class TwoDeeGrid {
 				cells[x][y] = CellColor.NONE;		
 			}
 		}
-				
+			
+		
 		// Create UI
 		JPanel panel = new JPanel();
 		panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
@@ -76,7 +76,6 @@ public class TwoDeeGrid {
 		frame.pack();
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
-
 	}
 
 	int getPixelXSize() {
