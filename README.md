@@ -14,3 +14,5 @@ It has the following main features:
 * Colouring the cells in different ways
 * Input from keyboard and mouse
 * Waiting time spans
+
+More at [](http://zyxxylabs.github.com/TwoDeeGrid/)!
