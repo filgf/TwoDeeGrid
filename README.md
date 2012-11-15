@@ -6,7 +6,7 @@ A playground for learning Java.
 
 The `TwoDeeGrid` is a graphical environmal for experimenting in Java. It consists of a Grid of square coloured cells that can be altered programmatically.
 
-![](pic/hello.png)
+![](doc/pic/hello.png)
 
 It has the following main features:
 
