@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans" type="text/css" />
+  <link rel="stylesheet" href="pandoc.css" type="text/css" />
+</head>
+<body>
+<h1 id="instructions-for-twodeegrid">Instructions for TwoDeeGrid</h1>
+<h2 id="what-is-twodeegrid">What is TwoDeeGrid?</h2>
+<p>The <code>TwoDeeGrid</code> is a graphical environment for experimenting in Java. It consists of a Grid of square coloured cells that can be altered programmatically.</p>
+<div class="figure">
+<img src="pic/Hello.png" /><p class="caption"></p>
+</div>
+<p>It has the following main features:</p>
+<ul>
+<li>Creating grids of arbitrary size</li>
+<li>Colouring the cells in different ways</li>
+<li>Input from keyboard and mouse</li>
+<li>Waiting time spans</li>
+</ul>
+<h2 id="first-steps">First Steps</h2>
+<h3 id="download-and-installation">Download and Installation</h3>
+<p>Copy the current version from <a href="https://raw.github.com/zyxxylabs/TwoDeeGrid/master/dist/TwoDeeGrid.zip">here</a> and unpack the archive.</p>
+<p>Create a Java-Project in Eclipse in drag the file <code>twodeegrid.jar</code> onto the project-name in the Package Explorer on the left side. In the following dialog select the option <em>Copy files</em> and click <em>OK</em>.</p>
+<p><code>twodeegrid.jar</code> should now appear in your project. Now, the library must be made usable for your own programs: Right-click <code>twodeegrid.jar</code> and select the menu entry <em>Build Path -&gt; Add to build path</em>.</p>
+<p>You can create your own classes via the menu *File -&gt; New -&gt; Class&quot;. Insert the following code as the first line after your package declaration:</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">import twodeegrid.*;</span></code></pre>
+<h3 id="hello-world">&quot;Hello World&quot;</h3>
+<p>A simple code example: First the grid is initialized to consist of 3x3 cells and the have the window title &quot;Hello World&quot;. Then the upper left cell (coordinate X=0, Y=0) is coloured red:</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">import twodeegrid.*;</span>
+
+<span class="kw">public</span> <span class="kw">class</span> HelloWorld {
+    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(String[] args) {
+        TwoDeeGrid g = <span class="kw">new</span> <span class="fu">TwoDeeGrid</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="st">&quot;Hello World&quot;</span>);
+        g.<span class="fu">setColorAt</span>(<span class="dv">0</span>, <span class="dv">0</span>, CellColor.<span class="fu">RED</span>);
+    }
+}</code></pre>
+<p>The result when running the program:</p>
+<div class="figure">
+<img src="pic/HelloWorld.png" /><p class="caption"></p>
+</div>
+<p>The grid stays on screen after the main-method finishes execution. The program is only finished when the window is manually closed by clicking on the close-symbol.</p>
+<h3 id="the-grid">The Grid</h3>
+<div class="figure">
+<img src="pic/Coords.png" /><p class="caption"></p>
+</div>
+<p>The Grid consists of square cells, that can be adressed using their horizontal (X) and their vertical (Y) coordinate. Coordinates are counted starting with 0. The upper left corner ist X=0, Y=0.</p>
+<h3 id="initializing-the-grid">Initializing the Grid</h3>
+<p>The grid can be initialized and shown by creating a <code>TwoDeeGrid</code> Object. Two different constructors are defined:</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="fu">TwoDeeGrid</span>()
+<span class="kw">public</span> <span class="fu">TwoDeeGrid</span>(<span class="dt">int</span> xSize, <span class="dt">int</span> ySize, String title)</code></pre>
+<p>The first variant creates a standard grid with the size 8x8. The second constructor can be used to define an arbitrarily sized grid with a specific windwo title. The size of the single cells is adapted automatically depending on the screen resolution.</p>
+<h2 id="cell-colors">Cell Colors</h2>
+<h3 id="setting-cell-colors">Setting Cell Colors</h3>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="dt">void</span> <span class="fu">setColorAt</span>(<span class="dt">int</span> x, <span class="dt">int</span> y, CellColor color)</code></pre>
+<p><code>setColorAt</code> colors the cell with the coordinate 'x' and 'y'. The third parameter is the cell color to set. The color can be given directly based on color constants (see <a href="#color-constants">Color Constants</a>) or generated randomly using different provided methods (see <a href="#random-colors">Random Colors</a>).</p>
+<p>All coordinate values are calculated <em>modulo</em> the size of the <code>TwoDeeGrid</code>. This means that for a coordinate x equal or larger the size of the raster, counting restarts at the left side of the grid. A value smaller than 0 adresses a cell counting from the right side of the <code>TwoDeeGrid</code>.</p>
+<p>The following example...</p>
+<pre class="sourceCode java"><code class="sourceCode java">TwoDeeGrid g = <span class="kw">new</span> <span class="fu">TwoDeeGrid</span>(<span class="dv">4</span>,<span class="dv">4</span>, <span class="st">&quot;TwoDeeGrid&quot;</span>);
+g.<span class="fu">setColorAt</span>(<span class="dv">1</span>, <span class="dv">3</span>, CellColor.<span class="fu">YELLOW</span>);
+g.<span class="fu">setColorAt</span>(-<span class="dv">1</span>, <span class="dv">0</span>, CellColor.<span class="fu">RED</span>);
+g.<span class="fu">setColorAt</span>(<span class="dv">4</span>, <span class="dv">1</span>, CellColor.<span class="fu">GREEN</span>);
+g.<span class="fu">setColorAt</span>(<span class="dv">2</span>, -<span class="dv">1</span>, CellColor.<span class="fu">BLUE</span>);
+g.<span class="fu">setColorAt</span>(<span class="dv">103</span>, <span class="dv">2</span>, CellColor.<span class="fu">BLACK</span>);</code></pre>
+<p>...yields:</p>
+<div class="figure">
+<img src="pic/Modulo.png" /><p class="caption"></p>
+</div>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="dt">void</span> <span class="fu">clear</span>()</code></pre>
+<p><code>clear()</code> deletes the grid and resets its values to their white base color.</p>
+<h3 id="reading-cell-colors">Reading Cell Colors</h3>
+<pre class="sourceCode java"><code class="sourceCode java">CellColor <span class="fu">getColorAt</span>(<span class="dt">int</span> x, <span class="dt">int</span> y)</code></pre>
+<p>returns the color at position x,y. Der value can be compared with the predefined <a href="#color-constants">constants</a>.</p>
+<p>Example:</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">if</span> (g.<span class="fu">getColorAt</span>(<span class="dv">1</span>, <span class="dv">3</span>) == CellColor.<span class="fu">YELLOW</span>) {
+  <span class="co">// Your Program here...</span>
+}</code></pre>
+<h3 id="color-constants">Color Constants</h3>
+<p>All color constants are provided by the class <code>CellColor</code>:</p>
+<div class="figure">
+<img src="pic/Colors.png" /><p class="caption"></p>
+</div>
+<p>The white cell color plays a special role: It stands for a uncolored cell in the grid. Its constant is <code>CellColor.NONE</code>.</p>
+<p>Example:</p>
+<pre class="sourceCode java"><code class="sourceCode java">TwoDeeGrid g = <span class="kw">new</span> <span class="fu">TwoDeeGrid</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="st">&quot;Hello World&quot;</span>);
+g.<span class="fu">setColorAt</span>(<span class="dv">1</span>, <span class="dv">1</span>, CellColor.<span class="fu">GREEN_LIGHT</span>);</code></pre>
+<h3 id="random-colors">Random Colors</h3>
+<p>Color values can be created randomly:</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="dt">static</span> CellColor <span class="fu">getRandomCellColor</span>() </code></pre>
+<p>...returns a <code>CellColor</code>-object of random color.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="dt">static</span> CellColor <span class="fu">getRandomRedBlue</span>() </code></pre>
+<p>...randomly returns <code>CellColor.RED</code> or <code>CellColor.BLUE</code>.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="dt">static</span> CellColor <span class="fu">getRandomOnOff</span>() </code></pre>
+<p>...randomly returns <code>CellColor.NONE</code> or <code>CellColor.BLACK</code>.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="dt">static</span> CellColor <span class="fu">getRandomOnOff</span>(<span class="dt">double</span> probabilityOn) </code></pre>
+<p>...randomly returns <code>CellColor.NONE</code> or <code>CellColor.BLACK</code>. The parameter <code>probabilityOn</code> is the probability that the returned value is &quot;on&quot; (e.g. black). 0.0 means 0% probability, 1.0 means 100% probability, 0.5 is 50%,...</p>
+<h2 id="working-with-the-grid-as-an-array">Working with the Grid as an Array</h2>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> CellColor[][] <span class="fu">getCellArray</span>()</code></pre>
+<p>returns a copy of the whole <code>TwoDeeGrid</code> as a two-dimensional array of color values (<code>CellColor</code>). The array can be altered freely. Changes will not instantly get visible, but can be given back to the grid with the following method:</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="dt">void</span> <span class="fu">updateCellArray</span>(CellColor[][] cells)</code></pre>
+<p>Using the array instead of working with <code>getColorAt()</code> und <code>setColorAt()</code> pays off when a large number (or all) cells should be altered at once.</p>
+<p>The following code example...</p>
+<pre class="sourceCode java"><code class="sourceCode java">TwoDeeGrid g = <span class="kw">new</span> <span class="fu">TwoDeeGrid</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="st">&quot;Hello Array!&quot;</span>);
+
+CellColor[][] cells = g.<span class="fu">getCellArray</span>();
+
+<span class="kw">for</span> (<span class="dt">int</span> x = <span class="dv">0</span>; x &lt; cells.<span class="fu">length</span>; x++) {
+  <span class="kw">for</span> (<span class="dt">int</span> y = <span class="dv">0</span>; y &lt; cells[x].<span class="fu">length</span>; y++) {
+    cells[x][y] = CellColor.<span class="fu">getRandomRedBlue</span>();
+  }
+}
+        
+g.<span class="fu">updateCellArray</span>(cells);</code></pre>
+<p>...yields:</p>
+<div class="figure">
+<img src="pic/HelloArray.png" /><p class="caption"></p>
+</div>
+<h2 id="keeping-track-of-time">Keeping Track of Time</h2>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="dt">void</span> <span class="fu">waitTime</span>(<span class="dt">double</span> time)</code></pre>
+<p>stops the program execution for a given time span. The parameter <code>time</code> sets the time spand in seconds.</p>
+<p><code>waitTime</code> can be used for dynamics changes or animations. The following example creates a grid with a blinking red square in the middle:</p>
+<pre class="sourceCode java"><code class="sourceCode java">TwoDeeGrid g = <span class="kw">new</span> <span class="fu">TwoDeeGrid</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="st">&quot;Blink!&quot;</span>);
+
+<span class="kw">while</span>(<span class="kw">true</span>) {
+  g.<span class="fu">setColorAt</span>(<span class="dv">1</span>, <span class="dv">1</span>, CellColor.<span class="fu">RED</span>);
+  g.<span class="fu">waitTime</span>(<span class="fl">0.3</span>);
+  g.<span class="fu">setColorAt</span>(<span class="dv">1</span>, <span class="dv">1</span>, CellColor.<span class="fu">NONE</span>);
+  g.<span class="fu">waitTime</span>(<span class="fl">0.6</span>);
+}</code></pre>
+<h2 id="user-input">User Input</h2>
+<p>A program can be made interactive via user input. <code>TwoDeeGrid</code> has two possibilities: mouse (or touchscreen) input and the keyboard.</p>
+<h3 id="mouse-input">Mouse Input</h3>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> MouseClick <span class="fu">waitMouseClick</span>()</code></pre>
+<p>waits until the user clicks on a cell. The method then returns an object of type <code>MouseClick</code>.</p>
+<p><code>MouseClick</code> holds information about the click that can be accessed using the following methods:</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="dt">int</span> <span class="fu">getX</span>()
+<span class="kw">public</span> <span class="dt">int</span> <span class="fu">getY</span>()
+<span class="kw">public</span> <span class="dt">int</span> <span class="fu">getType</span>()</code></pre>
+<p><code>getX()</code> and <code>getY()</code> return the X- and Y-coordinate of the selected cell. <code>getType()</code> returns which mouse button was pressed: the left (<code>MouseClick.LEFT</code>), the right (<code>MouseClick.RIGHT</code>) or the middle (<code>MouseClick.MIDDLE</code>) mouse button.</p>
+<p>The following example allows to paint on the grid using the mouse: ``` {.java} public static void main(String[] args) { TwoDeeGrid g = new TwoDeeGrid(5,5, &quot;TwoDeeGrid&quot;);</p>
+<p>while(true) { MouseClick click = g.waitMouseClick(); g.setColorAt(click.getX(), click.getY(), CellColor.getRandomCellColor()); } } ```</p>
+<h3 id="keyboard-input">Keyboard Input</h3>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="dt">int</span> <span class="fu">getKeyPressed</span>()</code></pre>
+<p>returns the last key that has been pressed on the keyboard. Contrary to <code>waitMouseClick()</code> <code>getKeyPressed()</code> does <em>not</em> wait until a key has been pushed.</p>
+<p>The different key pressed events are encoded in the JDK class <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/event/KeyEvent.html"><code>KeyEvent</code></a>. If no key was pressed <code>KeyEvent.CHAR_UNDEFINED</code> is returned.</p>
+<p>The following example opens a narrow window. The green square can be moved left and right using the arrow keys:</p>
+<pre class="sourceCode java"><code class="sourceCode java">TwoDeeGrid g = <span class="kw">new</span> <span class="fu">TwoDeeGrid</span>(<span class="dv">9</span>, <span class="dv">1</span>, <span class="st">&quot;Press LEFT/RIGHT&quot;</span>);
+<span class="dt">int</span> pos = <span class="dv">4</span>; 
+<span class="dt">int</span> key;
+
+<span class="kw">while</span> (<span class="kw">true</span>) {
+  g.<span class="fu">clear</span>();
+  g.<span class="fu">setColorAt</span>(pos, <span class="dv">0</span>, CellColor.<span class="fu">GREEN</span>);
+  
+  <span class="kw">do</span> {
+    key = g.<span class="fu">getKeyPressed</span>();
+  } <span class="kw">while</span> (key == KeyEvent.<span class="fu">CHAR_UNDEFINED</span>);
+  
+  <span class="kw">switch</span> (key) {
+  <span class="kw">case</span> KeyEvent.<span class="fu">VK_LEFT</span>:
+    pos--;
+    <span class="kw">break</span>;
+  <span class="kw">case</span> KeyEvent.<span class="fu">VK_RIGHT</span>:
+    pos++;
+    <span class="kw">break</span>;
+  }
+}</code></pre>
+<h2 id="reference-classes-and-methods">Reference (Classes and Methods)</h2>
+<h3 id="twodeegrid">TwoDeeGrid</h3>
+<ul>
+<li><p><code>public TwoDeeGrid(int xSize, int ySize, String title)</code> <br /> Creates a grid with dimensions <code>xSize</code> x <code>ySize</code> and the title <code>title</code>.</p></li>
+<li><p><code>public TwoDeeGrid()</code> <br /> Creates a grid with dimensions 8x8.</p></li>
+<li><p><code>public int getGridSizeX()</code><br /> Returns the rasters width (number of cells).</p></li>
+<li><p><code>public int getGridSizeY()</code><br /> Returns the rasters height (number of cells).</p></li>
+<li><p><code>public CellColor getColorAt(int x, int y)</code><br /> Returns the color value at position (<code>x</code>,<code>y</code>). (0, 0) means the upper left corner.</p></li>
+<li><p><code>public void setColorAt(int x, int y, CellColor color)</code><br /> Sets the color value at position (<code>x</code>,<code>y</code>) to <code>color</code>. (0, 0) means the upper left corner.</p></li>
+<li><p><code>public void clear()</code><br /> Clears the grid and colors all cells white.</p></li>
+<li><p><code>public CellColor[][] getCellArray()</code><br /> Returns the grid as a two-dimensional array. The color values can be accessed with <code>cell[x][y]</code>.</p></li>
+<li><p><code>public void updateCellArray(CellColor[][] cells)</code><br /> Sets the grid cells to the color values in the array <code>cells</code>.</p></li>
+<li><p><code>public void waitTime(double time)</code><br /> Waits <code>time</code> seconds.</p></li>
+<li><p><code>public MouseClick waitMouseClick()</code><br /> Waits until one of the cells was clicked. Returns an object with additional information.</p></li>
+<li><p><code>public int getKeyPressed()</code><br /> Returns the keycode for the last pressed key. The keys codes are defined in <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/event/KeyEvent.html"><code>KeyEvent</code></a>.</p></li>
+</ul>
+<h3 id="cellcolor">CellColor</h3>
+<ul>
+<li><p><code>public static CellColor getRandomCellColor()</code><br /> Returns a random color value.</p></li>
+<li><p><code>public static CellColor getRandomRedBlue()</code><br /> Randomly returns <code>CellColor.RED</code> or <code>CellColor.BLUE</code>.</p></li>
+<li><p><code>public static CellColor getRandomOnOff()</code><br /> Randomly returns <code>CellColor.BLACK</code> or <code>CellColor.NONE</code>.</p></li>
+<li><p><code>public static CellColor getRandomOnOff(double probabilityOn)</code><br /> Randomly returns <code>CellColor.BLACK</code> (with probability <code>probabilityOn</code>) or <code>CellColor.NONE</code> (with probability <code>1 - probabilityOn</code>).</p></li>
+</ul>
+<p>Defined color constants: see <a href="#color-constants">Color Constants</a>.</p>
+<h3 id="mouseclick">MouseClick</h3>
+<ul>
+<li><p><code>public int getX()</code><br /> X-coordinate of the clicked cell.</p></li>
+<li><p><code>public int getY()</code><br /> Y-coordinate of the clicked cell.</p></li>
+<li><p><code>public int getType()</code><br /> pushed mouse button (<code>MouseClick.LEFT</code>, <code>MouseClick.RIGHT</code> or <code>MouseClick.MIDDLE</code>).</p></li>
+</ul>
+</body>
+</html>
