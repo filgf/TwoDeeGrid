@@ -4,7 +4,7 @@
 
 Das `TwoDeeGrid` ist eine graphische Umgebung, welche zum Experimentieren in Java verwendet werden kann. Sie besteht aus einem Raster von quadratischen farbigen Feldern, die im Programmverlauf verändert werden können.
 
-![](pic/hello.png)
+![](pic/Hello.png)
 
 Sie bietet folgende Möglichkeiten:
 
