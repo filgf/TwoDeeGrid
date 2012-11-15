@@ -43,7 +43,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </ul>
 <h2 id="erste-schritte">Erste Schritte</h2>
 <h3 id="download-und-installation">Download und Installation</h3>
-<p>Kopieren Sie die aktuelle Version aus meinem Dozentenverzeichnis unter XXX (TODO) und entpacken Sie das Archiv.</p>
+<p>Laden Sie die aktuelle Version <a href="https://raw.github.com/zyxxylabs/TwoDeeGrid/master/dist/TwoDeeGrid.zip">hier herunter</a> und entpacken Sie das Archiv.</p>
 <p>Erstellen Sie ein Java-Projekt in Eclipse und ziehen Sie dann die Datei <code>twodeegrid.jar</code> via <em>Drag-and-Drop</em> auf den Projektnamen im Package-Explorer auf der linken Seite. Im erscheinenden Dialog w&#228;hlen Sie die Option <em>Copy files</em> und klicken <em>OK</em>.</p>
 <p>Im Projekt sollte jetzt <code>twodeegrid.jar</code> erscheinen. Die Bibliothek muss nun noch f&#252;r eigene Programme nutzbar gemacht werden. Klicken Sie mit der rechten Maustaste auf <code>twodeegrid.jar</code> und w&#228;hlen Sie den Eintrag <em>Build Path -&gt; Add to build path</em>.</p>
 <p>Sie k&#246;nnen eigene Klassen &#252;ber das Men&#252; *File -&gt; New -&gt; Class&quot; erstellen. F&#252;gen Sie in die erste Zeile folgenden Import ein:</p>
@@ -166,7 +166,7 @@ g.<span class="fu">updateCellArray</span>(cells);</code></pre>
 <h3 id="tastatur">Tastatur</h3>
 <pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="dt">int</span> <span class="fu">getKeyPressed</span>()</code></pre>
 <p>gibt die zuletzt auf der Tastatur gedr&#252;ckte Taste zur&#252;ck. Im Gegensatz zu <code>waitMouseClick()</code> wartet <code>getKeyPressed()</code> nicht bis eine Taste gedr&#252;ckt wurde.</p>
-<p>Die Tastenereignisse sind in der Klasse <code>KeyEvent</code> des JDK kodiert (TODO: LINK). Falls keine Taste gedr&#252;ckt wurde, wird <code>KeyEvent.CHAR_UNDEFINED</code> zur&#252;ckgegeben.</p>
+<p>Die Tastenereignisse sind in der Klasse <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/event/KeyEvent.html"><code>KeyEvent</code></a> des JDK kodiert. Falls keine Taste gedr&#252;ckt wurde, wird <code>KeyEvent.CHAR_UNDEFINED</code> zur&#252;ckgegeben.</p>
 <p>Folgendes Beispiel &#246;ffnet ein schmales Fenster. Das gr&#252;ne Quadrat kann mit den Pfeiltasten nach links und rechts bewegt werden:</p>
 <pre class="sourceCode java"><code class="sourceCode java">TwoDeeGrid g = <span class="kw">new</span> <span class="fu">TwoDeeGrid</span>(<span class="dv">9</span>, <span class="dv">1</span>, <span class="st">&quot;Press LEFT/RIGHT&quot;</span>);
 <span class="dt">int</span> pos = <span class="dv">4</span>; 
@@ -189,7 +189,7 @@ g.<span class="fu">updateCellArray</span>(cells);</code></pre>
     <span class="kw">break</span>;
   }
 }</code></pre>
-<h2 id="referent-klassen-und-methoden">Referent (Klassen und Methoden)</h2>
+<h2 id="referenz-klassen-und-methoden">Referenz (Klassen und Methoden)</h2>
 <h3 id="twodeegrid">TwoDeeGrid</h3>
 <ul>
 <li><p><code>public TwoDeeGrid(int xSize, int ySize, String title)</code> <br /> Erzeugt ein Grid mit der Gr&#246;&#223;e <code>xSize</code> x <code>ySize</code> und dem Titel <code>title</code>.</p></li>
@@ -200,17 +200,17 @@ g.<span class="fu">updateCellArray</span>(cells);</code></pre>
 <li><p><code>public void setColorAt(int x, int y, CellColor color)</code><br /> Setzt den Farbwert an Position (<code>x</code>,<code>y</code>) auf <code>color</code>. (0, 0) entspricht der linken oberen Ecke.</p></li>
 <li><p><code>public void clear()</code><br /> L&#246;scht das Grid und f&#228;rbt alle Zellen wei&#223;.</p></li>
 <li><p><code>public CellColor[][] getCellArray()</code><br /> Liefert das Raster als zweidimensionales Array. Auf die Farbwerte kann direkt &#252;ber <code>cell[x][y]</code> zugegriffen werden.</p></li>
-<li><p><code>public void updateCellArray(CellColor[][] cells)</code><br /> Setzt die Zellen des Grid auf die in cells gespeicherten Farbwerte.</p></li>
+<li><p><code>public void updateCellArray(CellColor[][] cells)</code><br /> Setzt die Zellen des Grid auf die in <code>cells</code> gespeicherten Farbwerte.</p></li>
 <li><p><code>public void waitTime(double time)</code><br /> Wartet <code>time</code> Sekunden.</p></li>
 <li><p><code>public MouseClick waitMouseClick()</code><br /> Wartet, bis eine der Zellen angeklickt wurde. Liefert ein Objekt mit zus&#228;tzlichen Informationen zur&#252;ck.</p></li>
-<li><p><code>public int getKeyPressed()</code><br /> Gibt den Code der zuletzt gedr&#252;ckten Taste zur&#252;ck, entsprechend der Codes in KeyEvent.</p></li>
+<li><p><code>public int getKeyPressed()</code><br /> Gibt den Code der zuletzt gedr&#252;ckten Taste zur&#252;ck, entsprechend der Codes in <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/event/KeyEvent.html"><code>KeyEvent</code></a>.</p></li>
 </ul>
 <h3 id="cellcolor">CellColor</h3>
 <ul>
 <li><p><code>public static CellColor getRandomCellColor()</code><br /> Liefert einen zuf&#228;lligen Farbwert.</p></li>
 <li><p><code>public static CellColor getRandomRedBlue()</code><br /> Liefert zuf&#228;llig und gleichwahrscheinlich <code>CellColor.RED</code> oder <code>CellColor.BLUE</code>.</p></li>
 <li><p><code>public static CellColor getRandomOnOff()</code><br /> Liefert zuf&#228;llig und gleichwahrscheinlich <code>CellColor.BLACK</code> oder <code>CellColor.NONE</code>.</p></li>
-<li><p><code>public static CellColor getRandomOnOff(double probabilityOn)</code><br /> Liefert zuf&#228;llig <code>CellColor.BLACK</code> (mit Wahrscheinlichkeit <code>probabilityOn</code>) und <code>CellColor.NONE</code>(mit Wahrscheinlichkeit <code>1 - probabilityOn</code>).</p></li>
+<li><p><code>public static CellColor getRandomOnOff(double probabilityOn)</code><br /> Liefert zuf&#228;llig <code>CellColor.BLACK</code> (mit Wahrscheinlichkeit <code>probabilityOn</code>) oder <code>CellColor.NONE</code>(mit Wahrscheinlichkeit <code>1 - probabilityOn</code>).</p></li>
 </ul>
 <p>Definierte Farbkonstanten: siehe <a href="#farbwerte">Farbwerte</a>.</p>
 <h3 id="mouseclick">MouseClick</h3>

@@ -17,7 +17,7 @@ It has the following main features:
 
 ### Download and Installation
 
-Copy the current version from XXX (TODO) and unpack the archive.
+Copy the current version from [here](https://raw.github.com/zyxxylabs/TwoDeeGrid/master/dist/TwoDeeGrid.zip)  and unpack the archive.
 
 Create a Java-Project in Eclipse in drag the file `twodeegrid.jar` onto the project-name in the Package Explorer on the left side. In the following dialog select the option *Copy files* and click *OK*.
 
@@ -258,7 +258,7 @@ public int getKeyPressed()
 
 returns the last key that has been pressed on the keyboard. Contrary to `waitMouseClick()` `getKeyPressed()` does *not* wait until a key has been pushed.
 
-The different key pressed events are encoded in the JDK class `KeyEvent` (TODO: LINK). If no key was pressed `KeyEvent.CHAR_UNDEFINED` is returned.
+The different key pressed events are encoded in the JDK class [`KeyEvent`](http://docs.oracle.com/javase/7/docs/api/java/awt/event/KeyEvent.html). If no key was pressed `KeyEvent.CHAR_UNDEFINED` is returned.
 
 The following example opens a narrow window. The green square can be moved left and right using the arrow keys:
 
@@ -292,65 +292,65 @@ while (true) {
 ### TwoDeeGrid
 
 * `public TwoDeeGrid(int xSize, int ySize, String title)` \
-  Erzeugt ein Grid mit der Größe `xSize` x `ySize` und dem Titel `title`.
+  Creates a grid with dimensions `xSize` x `ySize` and the title `title`.
 
 * `public TwoDeeGrid()` \
-  Erzeugt ein Grid der Größe 8x8.
+  Creates a grid with dimensions 8x8.
 
 * `public int getGridSizeX()`\
-  Liefert die Breite des Rasters (Anzahl der Zellen) zurück.
+  Returns the rasters width (number of cells).
 
 * `public int getGridSizeY()`\
-  Liefert die Höhe des Rasters (Anzahl der Zellen) zurück.
+  Returns the rasters height (number of cells).
 
 * `public CellColor getColorAt(int x, int y)`\
-  Liefert den Farbwert an Position (`x`,`y`). (0, 0) entspricht der linken oberen Ecke.
+  Returns the color value at position (`x`,`y`). (0, 0) means the upper left corner.
 
 * `public void setColorAt(int x, int y, CellColor color)`\
-  Setzt den Farbwert an Position (`x`,`y`) auf `color`. (0, 0) entspricht der linken oberen Ecke.
+  Sets the color value at position (`x`,`y`) to `color`. (0, 0) means the upper left corner.
 
 * `public void clear()`\
-  Löscht das Grid und färbt alle Zellen weiß.
+  Clears the grid and colors all cells white.
 
 * `public CellColor[][] getCellArray()`\
-  Liefert das Raster als zweidimensionales Array. Auf die Farbwerte kann direkt über `cell[x][y]` zugegriffen werden.
+  Returns the grid as a two-dimensional array. The color values can be accessed with `cell[x][y]`.
 
 * `public void updateCellArray(CellColor[][] cells)`\
-  Setzt die Zellen des Grid auf die in cells gespeicherten Farbwerte.
+  Sets the grid cells to the color values in the array `cells`.
 
 * `public void waitTime(double time)`\
-  Wartet `time` Sekunden.
+  Waits `time` seconds.
 
 * `public MouseClick waitMouseClick()`\
-  Wartet, bis eine der Zellen angeklickt wurde. Liefert ein Objekt mit zusätzlichen Informationen zurück.
+  Waits until one of the cells was clicked. Returns an object with additional information.
 
 * `public int getKeyPressed()`\
-  Gibt den Code der zuletzt gedrückten Taste zurück, entsprechend der Codes in KeyEvent.
+  Returns the keycode for the last pressed key. The keys codes are defined in [`KeyEvent`](http://docs.oracle.com/javase/7/docs/api/java/awt/event/KeyEvent.html).
 
 
 ### CellColor
 
 * `public static CellColor getRandomCellColor()`\
-  Liefert einen zufälligen Farbwert.
+  Returns a random color value.
 
 * `public static CellColor getRandomRedBlue()`\
-  Liefert zufällig und gleichwahrscheinlich `CellColor.RED` oder `CellColor.BLUE`.
+  Randomly returns `CellColor.RED` or `CellColor.BLUE`.
 
 * `public static CellColor getRandomOnOff()`\
-  Liefert zufällig und gleichwahrscheinlich `CellColor.BLACK` oder `CellColor.NONE`.
+  Randomly returns `CellColor.BLACK` or `CellColor.NONE`.
 
 * `public static CellColor getRandomOnOff(double probabilityOn)`\
-  Liefert zufällig `CellColor.BLACK` (mit Wahrscheinlichkeit `probabilityOn`) und `CellColor.NONE`(mit Wahrscheinlichkeit `1 - probabilityOn`).
-
-Definierte Farbkonstanten: siehe [Farbwerte](#farbwerte).
+  Randomly returns `CellColor.BLACK` (with probability `probabilityOn`) or `CellColor.NONE` (with probability `1 - probabilityOn`).
+  
+Defined color constants: see [Color Constants](#color-constants).
 
 ### MouseClick
 
 * `public int getX()`\
-  X-Koordinate der angeklickten Zelle.
+  X-coordinate of the clicked cell.
 
 * `public int getY()`\
-  Y-Koordinate der angeklickten Zelle.
+  Y-coordinate of the clicked cell.
 
 * `public int getType()`\
-  Gedrückte Maustaste (`MouseClick.LEFT`, `MouseClick.RIGHT` oder `MouseClick.MIDDLE`).
+  pushed mouse button (`MouseClick.LEFT`, `MouseClick.RIGHT` or `MouseClick.MIDDLE`).

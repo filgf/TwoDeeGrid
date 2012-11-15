@@ -1,11 +1,12 @@
 <project name="Griddle" default="dist" basedir=".">
 	<target name="dist">
-		<antcall target="compile"/>
+		<delete dir="build"/>
+		<mkdir dir="build"/>
 		
-		<delete file="dist/twodeegrid.jar"/>
-		<jar destfile="dist/twodeegrid.jar">
+		<antcall target="compile"/>
+
+		<jar destfile="build/twodeegrid.jar">
 			<fileset dir="bin">
-<!--				<exclude name="**/Test*.class"/> -->
 				<exclude name="twodeegrid/examples/**/*"/>
 			</fileset>
 			<manifest>
@@ -13,16 +14,28 @@
 		            value="twodeegrid.examples.HelloGrid"/>
 			</manifest>
 		</jar>
+		<delete dir="build/bin"/>
+		
+		<mkdir dir="build/doc"/>
+		<copy file="doc/ReadMe_DE.html" todir="build/doc"/>
+		<copy file="doc/ReadMe_EN.html" todir="build/doc"/>
+		<copy file="doc/pandoc.css" todir="build/doc"/>
+
+		<copy todir="build/doc/pic">
+		    <fileset dir="doc/pic"/>
+		  </copy>
+		
+		<zip destfile="dist/TwoDeeGrid.zip">
+			<fileset dir="build"/>
+		</zip>
 		
 <!--		<antcall target="doc"/> -->
 	</target>
 	
 	<target name="compile">
-		<delete dir="dist/bin"/>
-		<mkdir dir="dist/bin"/>
-		
+		<mkdir dir="build/bin"/>
 		  <javac srcdir="src"
-		         destdir="dist/bin"
+		         destdir="build/bin"
 				 includeAntRuntime="false"
 		         source="1.5"
 		         target="1.5"  />

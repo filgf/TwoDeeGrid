@@ -17,7 +17,7 @@ Sie bietet folgende Möglichkeiten:
 
 ### Download und Installation
 
-Kopieren Sie die aktuelle Version aus meinem Dozentenverzeichnis unter XXX (TODO) und entpacken Sie das Archiv.
+Laden Sie die aktuelle Version [hier herunter](https://raw.github.com/zyxxylabs/TwoDeeGrid/master/dist/TwoDeeGrid.zip) und entpacken Sie das Archiv.
 
 Erstellen Sie ein Java-Projekt in Eclipse und ziehen Sie dann die Datei `twodeegrid.jar` via *Drag-and-Drop* auf den Projektnamen im Package-Explorer auf der linken Seite. Im erscheinenden Dialog wählen Sie die Option *Copy files* und klicken *OK*.
 
@@ -260,7 +260,7 @@ public int getKeyPressed()
 
 gibt die zuletzt auf der Tastatur gedrückte Taste zurück. Im Gegensatz zu `waitMouseClick()` wartet `getKeyPressed()` nicht bis eine Taste gedrückt wurde.
 
-Die Tastenereignisse sind in der Klasse `KeyEvent` des JDK kodiert (TODO: LINK). Falls keine Taste gedrückt wurde, wird `KeyEvent.CHAR_UNDEFINED` zurückgegeben.
+Die Tastenereignisse sind in der Klasse [`KeyEvent`](http://docs.oracle.com/javase/7/docs/api/java/awt/event/KeyEvent.html) des JDK kodiert. Falls keine Taste gedrückt wurde, wird `KeyEvent.CHAR_UNDEFINED` zurückgegeben.
 
 Folgendes Beispiel öffnet ein schmales Fenster. Das grüne Quadrat kann mit den Pfeiltasten nach links und rechts bewegt werden:
 
@@ -318,7 +318,7 @@ while (true) {
   Liefert das Raster als zweidimensionales Array. Auf die Farbwerte kann direkt über `cell[x][y]` zugegriffen werden.
 
 * `public void updateCellArray(CellColor[][] cells)`\
-  Setzt die Zellen des Grid auf die in cells gespeicherten Farbwerte.
+  Setzt die Zellen des Grid auf die in `cells` gespeicherten Farbwerte.
 
 * `public void waitTime(double time)`\
   Wartet `time` Sekunden.
@@ -327,7 +327,7 @@ while (true) {
   Wartet, bis eine der Zellen angeklickt wurde. Liefert ein Objekt mit zusätzlichen Informationen zurück.
 
 * `public int getKeyPressed()`\
-  Gibt den Code der zuletzt gedrückten Taste zurück, entsprechend der Codes in KeyEvent.
+  Gibt den Code der zuletzt gedrückten Taste zurück, entsprechend der Codes in [`KeyEvent`](http://docs.oracle.com/javase/7/docs/api/java/awt/event/KeyEvent.html).
 
 
 ### CellColor
@@ -342,7 +342,7 @@ while (true) {
   Liefert zufällig und gleichwahrscheinlich `CellColor.BLACK` oder `CellColor.NONE`.
 
 * `public static CellColor getRandomOnOff(double probabilityOn)`\
-  Liefert zufällig `CellColor.BLACK` (mit Wahrscheinlichkeit `probabilityOn`) und `CellColor.NONE`(mit Wahrscheinlichkeit `1 - probabilityOn`).
+  Liefert zufällig `CellColor.BLACK` (mit Wahrscheinlichkeit `probabilityOn`) oder `CellColor.NONE`(mit Wahrscheinlichkeit `1 - probabilityOn`).
 
 Definierte Farbkonstanten: siehe [Farbwerte](#farbwerte).
 
