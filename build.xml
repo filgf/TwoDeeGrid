@@ -2,12 +2,13 @@
 	<target name="dist">
 		<delete dir="build"/>
 		<mkdir dir="build"/>
-		
+
 		<antcall target="compile"/>
 
 		<jar destfile="build/twodeegrid.jar">
 			<fileset dir="bin">
 				<exclude name="twodeegrid/examples/**/*"/>
+				<exclude name="twodeegrid/test/**/*"/>
 			</fileset>
 			<manifest>
 				<attribute name="Main-Class"
@@ -15,39 +16,39 @@
 			</manifest>
 		</jar>
 		<delete dir="build/bin"/>
-		
+
 		<mkdir dir="build/doc"/>
 		<copy file="doc/ReadMe_DE.html" todir="build/doc"/>
 		<copy file="doc/ReadMe_EN.html" todir="build/doc"/>
 		<copy file="doc/pandoc.css" todir="build/doc"/>
 
 		<copy todir="build/doc/pic">
-		    <fileset dir="doc/pic"/>
-		  </copy>
-		
+			<fileset dir="doc/pic"/>
+		</copy>
+
 		<zip destfile="dist/TwoDeeGrid.zip">
 			<fileset dir="build"/>
 		</zip>
-		
-<!--		<antcall target="doc"/> -->
+
+		<!--		<antcall target="doc"/> -->
 	</target>
-	
+
 	<target name="compile">
 		<mkdir dir="build/bin"/>
-		  <javac srcdir="src"
+		<javac srcdir="src"
 		         destdir="build/bin"
 				 includeAntRuntime="false"
 		         source="1.5"
 		         target="1.5"  />
 
-<!--		<javac srcdir="test"
+		<!--		<javac srcdir="test"
 		         destdir="dist/bin"
 			 includeAntRuntime="false"
 				source="1.5"
 		         target="1.5"  /> -->
 	</target>
-	
-<!--	<target name="doc">
+
+	<!--	<target name="doc">
 		<delete dir="dist/doc"/>
 		  <javadoc packagenames="twodeegrid.*"
 		           sourcepath="src"
@@ -63,5 +64,5 @@
 		    <link href="http://developer.java.sun.com/developer/products/xml/docs/api/"/>
 		  </javadoc>
 	</target>
--->	
+-->
 </project>

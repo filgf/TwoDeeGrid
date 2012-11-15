@@ -1,4 +1,4 @@
-package twodeegrid;
+package twodeegrid.test;
 
 import twodeegrid.MessageWindow;
 import twodeegrid.TwoDeeGrid;
