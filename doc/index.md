@@ -6,7 +6,7 @@ A playground for learning Java.
 
 The `TwoDeeGrid` is a graphical environment for experimenting in Java. It consists of a Grid of square coloured cells that can be altered programmatically.
 
-![](https://github.com/zyxxylabs/TwoDeeGrid/blob/master/doc/pic/Hello.png?raw=true)
+![](pic/Hello.png)
 
 It has the following main features:
 
@@ -15,4 +15,4 @@ It has the following main features:
 * Input from keyboard and mouse
 * Waiting time spans
 
-More at [http://zyxxylabs.github.com/TwoDeeGrid](http://zyxxylabs.github.com/TwoDeeGrid/)!
+**Learn more:** [Instructions in English](ReadMe_EN.html) - [Anleitung auf Deutsch](ReadMe_DE.html)

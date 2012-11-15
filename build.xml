@@ -18,6 +18,7 @@
 		<delete dir="build/bin"/>
 
 		<mkdir dir="build/doc"/>
+		<copy file="doc/index.html" todir="build/doc"/>
 		<copy file="doc/ReadMe_DE.html" todir="build/doc"/>
 		<copy file="doc/ReadMe_EN.html" todir="build/doc"/>
 		<copy file="doc/pandoc.css" todir="build/doc"/>

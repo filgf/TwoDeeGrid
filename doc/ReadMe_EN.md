@@ -2,7 +2,7 @@
 
 ## What is TwoDeeGrid?
 
-The `TwoDeeGrid` is a graphical environmal for experimenting in Java. It consists of a Grid of square coloured cells that can be altered programmatically.
+The `TwoDeeGrid` is a graphical environment for experimenting in Java. It consists of a Grid of square coloured cells that can be altered programmatically.
 
 ![](pic/Hello.png)
 
