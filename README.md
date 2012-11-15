@@ -15,4 +15,4 @@ It has the following main features:
 * Input from keyboard and mouse
 * Waiting time spans
 
-More at [](http://zyxxylabs.github.com/TwoDeeGrid/)!
+More at [http://zyxxylabs.github.com/TwoDeeGrid](http://zyxxylabs.github.com/TwoDeeGrid/)!
