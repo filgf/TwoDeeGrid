@@ -61,7 +61,7 @@ public class TronGame {
 			
 			playerInput();
 
-			g.setColorAt(xPos, yPos, CellColor.DARK_GREY);
+			g.setColorAt(xPos, yPos, CellColor.GREY_DARK);
 
 			movePlayer();
 			

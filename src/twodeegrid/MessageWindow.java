@@ -15,7 +15,7 @@ public class MessageWindow {
 	private String message;
 	
 	private JDialog dialog = new JDialog();
-
+	
 	public void setModal(boolean isModal) {
 		this.isModal = isModal;
 	}

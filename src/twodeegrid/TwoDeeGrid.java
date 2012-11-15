@@ -22,6 +22,11 @@ public class TwoDeeGrid {
 	
 	int lastKey = KeyEvent.CHAR_UNDEFINED;
 
+	
+	public TwoDeeGrid() {
+		this(8, 8, "TwoDeeGrid");
+	}
+	
 	/**
 	 * Create a new instance of Griddie. This initializes a window with a grid size
 	 * of xSize x ySize and the given window title and shows it.
@@ -71,7 +76,7 @@ public class TwoDeeGrid {
 			}
 		});
 		frame.setContentPane(panel);
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
 		frame.pack();
 		frame.setLocationRelativeTo(null);
@@ -204,6 +209,7 @@ public class TwoDeeGrid {
 	}
 
 	public int getKeyPressed() {
+		Thread.currentThread().interrupt();
 		int lk = lastKey;
 		lastKey = KeyEvent.CHAR_UNDEFINED;
 		return lk;
@@ -216,17 +222,4 @@ public class TwoDeeGrid {
 	public int getGridSizeY() {
 		return xSize;
 	}
-	
-	
-	// TODO: SINNVOLL?
-	public void run() {
-		// Implement
-	}
-	
-	public static void main(String[] args) {
-		TwoDeeGrid grid = new TwoDeeGrid(16, 16, "Griddie");
-		grid.run();
-	}
-	
-
 }

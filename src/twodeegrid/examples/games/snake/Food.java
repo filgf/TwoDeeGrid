@@ -41,7 +41,7 @@ public class Food {
 	}
 	
 	private void drawFoodAt(Tuple pos) {
-		g.setColorAt(pos.x, pos.y, CellColor.ORANGE);
+		g.setColorAt(pos.x, pos.y, CellColor.YELLOW);
 	}
 	
 }

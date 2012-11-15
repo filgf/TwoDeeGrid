@@ -17,7 +17,6 @@ public class GameOfLife {
 			for (int x = 0; x < g.getGridSizeX(); x++) {
 				g.setColorAt(x, y, CellColor.getRandomOnOff(0.31));
 			}
-			
 		}
 	}
 

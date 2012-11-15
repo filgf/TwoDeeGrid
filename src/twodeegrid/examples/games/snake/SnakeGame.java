@@ -53,7 +53,7 @@ public class SnakeGame {
 			
 			playerInput();
 
-			g.setColorAt(snake.pos.x, snake.pos.y, CellColor.DARK_GREY);
+			g.setColorAt(snake.pos.x, snake.pos.y, CellColor.GREY_DARK);
 			
 			if (snake.move()) {
 			
@@ -69,7 +69,7 @@ public class SnakeGame {
 
 			g.setColorAt(snake.pos.x, snake.pos.y, CellColor.GREEN);
 			
-			if (g.getColorAt(snake.pos.x, snake.pos.y) == CellColor.DARK_GREY) {
+			if (g.getColorAt(snake.pos.x, snake.pos.y) == CellColor.GREY_DARK) {
 				alive = false;
 				g.setColorAt(snake.pos.x, snake.pos.y, CellColor.RED);				
 			}

@@ -12,70 +12,82 @@ public enum CellColor {
 	 * No color - empty white cell.
 	 */
 	NONE (Color.WHITE),
+
 	/**
 	 * Black  	
 	 */
 	BLACK (Color.BLACK),
+
 	/**
 	 * Light grey	
 	 */
-	LIGHT_GREY (Color.LIGHT_GRAY),
+	GREY_LIGHT (Color.LIGHT_GRAY),
+
 	/**
 	 * Medium grey 	
 	 */
 	GREY (Color.GRAY),
+
 	/**
 	 * Dark grey 	
 	 */
-	DARK_GREY (Color.DARK_GRAY),
-	
-	/**
-	 * Green 	
-	 */
-	GREEN (new Color(0x30DE45)),
+	GREY_DARK (Color.DARK_GRAY),
+
 	/**
 	 * Lighter green 	
 	 */
 	GREEN_LIGHT (new Color(0x95F1A0)),
+
+	/**
+	 * Green 	
+	 */
+	GREEN (new Color(0x30DE45)),
+
 	/**
 	 * Darker green
 	 */
 	GREEN_DARK (new Color(0x119622)),
 	
 	/**
-	 * Blue	
-	 */
-	BLUE (new Color(0x3D6BCF)),
-	/**
 	 * Lighter blue 	
 	 */
 	BLUE_LIGHT (new Color(0x9AB4EA)),
+
+	/**
+	 * Blue	
+	 */
+	BLUE (new Color(0x3D6BCF)),
+
 	/**
 	 * Darker blue	
 	 */
 	BLUE_DARK (new Color(0x163C8B)),
 	
 	/**
-	 * Orange 	
-	 */
-	ORANGE (new Color(0xFFBB37)),
-	/**
 	 * Lighter orange 	
 	 */
-	ORANGE_LIGHT (new Color(0xFFDE9E)),
+	YELLOW_LIGHT (new Color(0xFFDE9E)),
+
+	/**
+	 * Orange 	
+	 */
+	YELLOW (new Color(0xFFBB37)),
+
 	/**
 	 * Darker orange
 	 */
-	ORANGE_DARK (new Color(0xAC7814)),
+	YELLOW_DARK (new Color(0xAC7814)),
+	
+	/**
+	 * Lighter red 	
+	 */
+	RED_LIGHT (new Color(0xFFA39E)),
 	
 	/**
 	 * Red
 	 */
 	RED (new Color(0xFF4137)),
-	/**
-	 * Lighter red 	
-	 */
-	RED_LIGHT (new Color(0xFFA39E)),
+
 	/**
 	 * Darker red 	
 	 */

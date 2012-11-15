@@ -10,8 +10,8 @@ public class TicTacToe {
 	private void init() {
 		g.clear();
 		for (int x = 0; x < 3; x++) {
-			g.setColorAt(x, 3, CellColor.LIGHT_GREY);
-			g.setColorAt(x, 4, CellColor.LIGHT_GREY);
+			g.setColorAt(x, 3, CellColor.GREY_LIGHT);
+			g.setColorAt(x, 4, CellColor.GREY_LIGHT);
 		}
 	}
 	
@@ -45,7 +45,7 @@ public class TicTacToe {
 				break;
 			} else if (emptyFields == 0) {
 				for (int x = 0; x < 3; x++) {
-					g.setColorAt(x, 4, CellColor.LIGHT_GREY);
+					g.setColorAt(x, 4, CellColor.GREY_LIGHT);
 				}
 				break;
 			}
