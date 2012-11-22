@@ -209,7 +209,7 @@ public class TwoDeeGrid {
 	}
 
 	public int getKeyPressed() {
-		Thread.currentThread().interrupt();
+		waitTime(0.001);
 		int lk = lastKey;
 		lastKey = KeyEvent.CHAR_UNDEFINED;
 		return lk;
