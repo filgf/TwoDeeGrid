@@ -20,7 +20,8 @@ public class TwoDeeGrid {
 	
 	private TwoDeeGridComponent gComp;
 	
-	int lastKey = KeyEvent.CHAR_UNDEFINED;
+	Object lockKey = new Object();
+	int lastKey = KeyEvent.VK_UNDEFINED;
 
 	
 	public TwoDeeGrid() {
@@ -28,7 +29,7 @@ public class TwoDeeGrid {
 	}
 	
 	/**
-	 * Create a new instance of Griddie. This initializes a window with a grid size
+	 * Create a new instance of TwoDeeGrid. This initializes a window with a grid size
 	 * of xSize x ySize and the given window title and shows it.
 	 * 
 	 * The window must be closed manually.
@@ -72,7 +73,9 @@ public class TwoDeeGrid {
 		frame.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
-				lastKey = e.getExtendedKeyCode();
+				synchronized (lockKey) {
+					lastKey = e.getKeyCode();
+				}
 			}
 		});
 		frame.setContentPane(panel);
@@ -210,8 +213,12 @@ public class TwoDeeGrid {
 
 	public int getKeyPressed() {
 		waitTime(0.001);
-		int lk = lastKey;
-		lastKey = KeyEvent.CHAR_UNDEFINED;
+		
+		int lk;
+		synchronized(lockKey) {
+			lk = lastKey;
+			lastKey = KeyEvent.VK_UNDEFINED;
+		}
 		return lk;
 	}
 	

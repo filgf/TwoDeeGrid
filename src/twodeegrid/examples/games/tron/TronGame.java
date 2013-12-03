@@ -17,7 +17,7 @@ public class TronGame {
 	double speed;
 
 	public TronGame() {
-		g = new TwoDeeGrid(30, 30, "Tron!");
+		g = new TwoDeeGrid(15, 15, "Tron!");
 	}
 	
 	private void playerInput() {
@@ -51,7 +51,7 @@ public class TronGame {
 		yPos = 15;
 		moveX = 1;
 		moveY = 0;
-		speed = 0.15;
+		speed = 0.5;
 		
 		g.setColorAt(xPos, yPos, CellColor.GREEN);
 
